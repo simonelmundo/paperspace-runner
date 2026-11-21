@@ -4,7 +4,20 @@ Minimal Paperspace notebook workspace. Boots in seconds instead of minutes: no C
 no model downloads, no pip installs. Just the persistent directories, `uv`, and a
 `/notebooks/READY` file describing the stack.
 
-## Launch config (Paperspace console -> Launch a notebook)
+## Auto-launch
+
+```bash
+pip install -r requirements.txt
+python launch.py            # ensure running, print URL
+python launch.py --status   # state only
+python launch.py --stop     # shut down
+```
+
+Same path as the ComfyUI autostart: find the notebook by name, start it if stopped,
+recreate it if dead, then poll until `Running`. Needs the console JWT in
+`~/.paperspace/jwt_token` (the `accessToken` cookie from console.paperspace.com).
+
+## Manual launch config (Paperspace console -> Launch a notebook)
 
 | Field | Value |
 |---|---|
